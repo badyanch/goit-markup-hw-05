@@ -11,6 +11,8 @@
   --icons-bg-color: rgba(255, 255, 255, 0.1);
   --secondary-accent-color: #ffffff;
   --icon-backround-color: #f5f4fa;
+  --duration: 250ms;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -58,7 +60,12 @@ img {
 
 /* Logo */
 .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   border-bottom: 1px solid #ececec;
+  background-color: var(--secondary-accent-color);
+  z-index: 2;
 }
 
 .logo {
@@ -124,6 +131,8 @@ img {
 
   text-decoration: none;
   color: var(--title-text-color);
+
+  transition: color var(--duration) var(--timing-function);
 }
 
 .site-nav .link:hover,
@@ -157,6 +166,8 @@ img {
   color: var(--primary-text-color);
 
   text-decoration: none;
+
+  transition: color var(--duration) var(--timing-function);
 }
 
 .contact-nav .link-contact:hover,
@@ -212,6 +223,8 @@ img {
   border-radius: 4px;
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  transition: background-color var(--duration) var(--timing-function);
 }
 
 .hero-button:hover,
@@ -366,12 +379,17 @@ img {
 
 .social-network-link.primary {
   color: var(--icons-color);
+
+  transition: color var(--duration) var(--timing-function),
+    background-color var(--duration) var(--timing-function);
 }
 
 .social-network-link.secondary {
   color: var(--secondary-accent-color);
 
   background-color: var(--icons-bg-color);
+
+  transition: background-color var(--duration) var(--timing-function);
 }
 
 .social-network-link.primary:hover,
@@ -403,6 +421,8 @@ img {
 
   border: 1px solid var(--icons-color);
   border-radius: 4px;
+
+  transition: color var(--duraction) var(--timing-function);
 }
 
 .link-clients:hover,
@@ -503,6 +523,10 @@ img {
   border-radius: 4px;
 
   padding: 6px 22px;
+
+  transition: color var(--duration) var(--timing-function),
+    background-color var(--duration) var(--timing-function),
+    box-shadow var(--duration) var(--timing-function);
 }
 
 .button-list .button:hover,
@@ -555,6 +579,11 @@ img {
   color: var(--secondary-accent-color);
 }
 
+.project-item:hover .project-overlay,
+.project-item:focus .project-overlay {
+    transform: translateY(0);
+}
+
 .project-thumb {
   position: relative;
   overflow: hidden;
@@ -571,6 +600,7 @@ img {
   width: 100%;
   background-color: rgba(33, 150, 243, 0.9);
   transform: translateY(101%);
+  transition: transform var(--duration) var(--timing-function);
 }
 
 .border {
@@ -584,12 +614,21 @@ img {
 .backdrop {
   position: fixed;
   z-index: 2;
+
   top: 0;
   left: 0;
+
   width: 100%;
   height: 100%;
+
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
+
+  transition: opacity var(--duration) var(--timing-function);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
 }
 
 .modal {
@@ -603,6 +642,7 @@ img {
   border-radius: 4px;
   background-color: var(--secondary-accent-color);
   transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--duration) var(--timing-function);
 }
 
 .close-modal-btn {
