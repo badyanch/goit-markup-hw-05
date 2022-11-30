@@ -422,7 +422,7 @@ img {
   border: 1px solid var(--icons-color);
   border-radius: 4px;
 
-  transition: color var(--duraction) var(--timing-function);
+  transition: color var(--duration) var(--timing-function);
 }
 
 .link-clients:hover,
@@ -471,6 +471,8 @@ img {
   text-decoration: none;
 
   color: rgba(255, 255, 255, 0.6);
+
+  transition: color var(--duration) var(--timing-function);
 }
 
 .contact-footer .link-contact:hover,
